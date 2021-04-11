@@ -6,7 +6,6 @@ The user can:
 4. Update a contact
 5. View all the contacts.
 
-1. The user can insert contacts which will be sorted automatically. 
-2. The sorting technique used is Bubble sort.
-
 The contacts (with their details) are linked by doubly linked list. 
+The user can insert contacts which will be sorted automatically with respect to their names. Sorting is done by Bubble Sort technique. 
+The sorting technique used is Bubble sort.
