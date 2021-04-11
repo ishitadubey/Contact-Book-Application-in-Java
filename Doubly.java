@@ -76,15 +76,19 @@ public class Doubly
     void insertcontact()
     {
         String name1, address1, email1, phone1;
-        System.out.println("Enter contact details");
-        System.out.println("Enter name:");
-        name1=sc.nextLine().toUpperCase();
-        System.out.println("Enter number:");
-        phone1=sc.nextLine();
-        System.out.println("Enter address:");
-        address1=sc.nextLine();
-        System.out.println("Enter email:");
-        email1=sc.nextLine();
+        boolean val;
+        do{ //perform at least once
+            System.out.println("Enter contact details:");
+            System.out.println("Enter name:");
+            name1=sc.nextLine().toUpperCase();
+            System.out.println("Enter number:");
+            phone1=sc.nextLine();
+            System.out.println("Enter address:");
+            address1=sc.nextLine();
+            System.out.println("Enter email:");
+            email1=sc.nextLine();
+            val=validate(name1, email1, phone1); //validate the details
+        }while(!val); //if incorrect details
 
         Node node=new Node();
         node.name=name1;
@@ -109,9 +113,24 @@ public class Doubly
         System.out.println("Contact Inserted!");
 
     }
-    void validate()
+    boolean validate(String name2, String email2, String phone2)
     {
-
+        if(name2.matches("\\p{Upper}(\\p{Lower}+\\s?)")) //regex for name (first name+last name)
+            if(email2.matches("^(.+)@(.+)$")) //regex for email
+                if(phone2.matches("[7-9][0-9]{9}")) //regex for phone number
+                return true;
+                else{
+                    System.out.println("Invalid Phone number.");
+                    return false;
+                }
+            else{
+                System.out.println("Invalid Email Id.");
+                return false;
+            }
+        else{
+            System.out.println("Invalid Name.");
+            return false;
+        }
     }
     void delete()
     { //deletion by name
