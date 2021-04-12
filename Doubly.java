@@ -115,7 +115,7 @@ public class Doubly
     }
     boolean validate(String name2, String email2, String phone2)
     {
-        if(name2.matches("\\p{Upper}(\\p{Lower}+\\s?)")) //regex for name (first name+last name)
+        if(name2.matches("^[a-zA-Z\\s]*$")) //regex for name (first name+last name) allowing only letters and spaces
             if(email2.matches("^(.+)@(.+)$")) //regex for email
                 if(phone2.matches("[7-9][0-9]{9}")) //regex for phone number
                 return true;
